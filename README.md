@@ -29,7 +29,7 @@ You create an ArrayCursor with:
 ```js
 var arrayCursor = new ArrayCursor(array, begin, end);
 ```
-begin and end follow the same rules as (Array.prototype.slice)[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice].
+begin and end follow the same rules as [Array.prototype.slice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice).
 
 Attributes
 ----------
@@ -40,6 +40,6 @@ Methods
 -------
 The object has the following methods:
 * get(n) : return the n item
-* slice(begin, end): return a new instance of ArrayCursor sliced in a different way (same API as Array.prototype.slice)
-* forEach(cb): it is equivalent to Array.prototype.forEach
+* slice(begin, end): return a new instance of ArrayCursor sliced in a different way (same API as [Array.prototype.slice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice))
+* forEach(cb): it is equivalent to [Array.prototype.forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
 * toArray(): it returns a new array that is the slice of the array contained in this.data.
