@@ -1,7 +1,7 @@
 Array cursor
 ============
-Data structure that wraps an array. It allows to slices it without mutate the array itself.
-It just take into consideration indexes (begin and end).
+Data structure that wraps an array. It allows to slice it without mutate the array itself.
+It just takes into consideration two indexes (begin and end).
 
 Example:
 ```js
@@ -27,16 +27,17 @@ API
 ===
 You create an ArrayCursor with:
 ```js
-var wrapped = new ArrayCursor(array, begin, end);
+var arrayCursor = new ArrayCursor(array, begin, end);
 ```
-begin and end follows the same rules as (Array.prototype.slice)[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice].
+begin and end follow the same rules as (Array.prototype.slice)[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice].
 
 Attributes
 ----------
 The length of the array is in the **length** attribute.
 Then original array is in **data** but you can only see from **begin** to **end**.
 
-Methods:
+Methods
+-------
 The object has the following methods:
 * get(n) : return the n item
 * slice(begin, end): return a new instance of ArrayCursor sliced in a different way (same API as Array.prototype.slice)
