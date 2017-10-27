@@ -1,6 +1,6 @@
 {
   "name": "array-cursor",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An immutable array that can sliced without actually mutating",
   "main": "index.js",
   "scripts": {
