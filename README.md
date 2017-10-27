@@ -43,3 +43,9 @@ The object has the following methods:
 * slice(begin, end): return a new instance of ArrayCursor sliced in a different way (same API as [Array.prototype.slice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice))
 * forEach(cb): it is equivalent to [Array.prototype.forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
 * toArray(): it returns a new array that is the slice of the array contained in this.data.
+* It also support various array methods: map, filter, reduce
+
+
+
+### Why not using a proxy to access data seamlessly ?
+As of node 8.7 proxies are so slow to instantiate that defeat completely the purpose of the library.

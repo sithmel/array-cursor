@@ -1,5 +1,6 @@
 var assert = require('chai').assert;
-var ArrayCursor = require('..');
+// var ArrayCursor = require('..');
+var ArrayCursor = require('../es6');
 
 describe('ArrayCursor', function () {
   it('can be instantiated', function () {
@@ -17,6 +18,15 @@ describe('ArrayCursor', function () {
     assert.equal(a.get(3), 4);
     assert.equal(a.get(-1), undefined);
     assert.equal(a.get(4), undefined);
+  });
+
+  it.skip('uses proxy if available', function () {
+    var a = new ArrayCursor([1, 2, 3, 4]);
+    assert.equal(a.length, 4);
+    assert.equal(a[0], 1);
+    assert.equal(a[1], 2);
+    assert.equal(a[2], 3);
+    assert.equal(a[3], 4);
   });
 
   it('uses begin', function () {
@@ -92,5 +102,24 @@ describe('ArrayCursor', function () {
     assert.equal(c.get(3), undefined);
     assert.equal(c.get(-1), undefined);
     assert.equal(c.get(4), undefined);
+  });
+
+  it('uses map', function () {
+    var a = new ArrayCursor([0, 1, 2, 3, 4, 5])
+      .map(function (i) { return i + 5; });
+    assert.deepEqual(a, [5, 6, 7, 8, 9, 10]);
+  });
+
+  it('uses reduce', function () {
+    var a = new ArrayCursor([0, 1, 2, 3, 4, 5])
+      .reduce(function (acc, i) { return acc + i; }, 0);
+    assert.equal(a, 15);
+  });
+
+  it('uses forEach', function () {
+    var copy = [];
+    new ArrayCursor([0, 1, 2, 3, 4, 5])
+      .forEach(function (i) { copy.push(i); });
+    assert.deepEqual(copy, [0, 1, 2, 3, 4, 5]);
   });
 });
